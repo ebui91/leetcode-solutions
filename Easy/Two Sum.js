@@ -50,13 +50,12 @@ const twoSum = function (nums, target) {
     }
 
     // Creates our data structure for an time efficient solution
-    // - Sacrificing memory for speed gains
+    // Sacrificing memory for speed gains
     if (!data[nums[i]]) {
       data[nums[i]] = {
         index: i,
         neededMatch: (target - nums[i])
       }
     }
-
   }
 };
