@@ -11,6 +11,9 @@
 
 // Level 3 Solution
 // Uses a hashmap to store a "window" that keeps track of the longest substring
+// Define a mapping of the characters to its index
+// Skip the characters immediately when a repeated character is found
+// If a duplicate is found in the [i, j) range, skip all elements in range [i,j'] and set i to j'+1 directly
 const lengthOfLongestSubstring = (s) => {
   const map = {};
   let max = 0;
