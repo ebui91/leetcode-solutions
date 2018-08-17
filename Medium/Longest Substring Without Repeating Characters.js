@@ -14,19 +14,18 @@
 // Define a mapping of the characters to its index
 // Skip the characters immediately when a repeated character is found
 // If a duplicate is found in the [i, j) range, skip all elements in range [i,j'] and set i to j'+1 directly
-const lengthOfLongestSubstring = (s) => {
-  const map = {};
-  let max = 0;
+const myFunc = (str) => {
+  const hashmap = {};
+  let maxLength = 0;
   let i = 0;
 
-  for (let j=0; j<s.length; j++) {
-    const c = s[j];
-
-    if (map[c] !== undefined) {
-      i = Math.max(map[c], i);
+  for (let j = 0; j < str.length; j++) {
+    let curr = str[j];
+    if (hashmap.hasOwnProperty(curr)) {
+      i = Math.max(hashmap[curr], i);
     }
-    max = Math.max(max, j - i + 1);
-    map[c] = j + 1;
+    maxLength = Math.max(maxLength, j - i + 1);
+    hashmap[curr] = j + 1;
   }
-  return max;
-};
+  return maxLength
+}
