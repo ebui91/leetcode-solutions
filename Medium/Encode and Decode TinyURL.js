@@ -10,12 +10,12 @@
  * @return {string}
  */
 
-const maxChars = 6;
-let charSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const maxChars = 6
+let charSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 // I'm going to use two HashMaps to store both encoded and decoded URLs.
-let urlMap = new Map();
-let codeMap = new Map();
+let urlMap = new Map()
+let codeMap = new Map()
 
 const encode = longUrl => {
   // Handles collisions within our HashMap. Duplicate URLs use the same encoding.
@@ -26,14 +26,14 @@ const encode = longUrl => {
   let code = [...Array(maxChars)]
     .map(curr => Math.floor(Math.random() * charSet.length))
     .map(randomIndex => charSet[randomIndex])
-    .join("");
+    .join("")
 
   // Map.prototype.set(key, value)
-  urlMap.set(longUrl, code);
-  codeMap.set(code, longUrl);
+  urlMap.set(longUrl, code)
+  codeMap.set(code, longUrl)
 
-  return `http://tinyurl.com/${code}`;
-};
+  return `http://tinyurl.com/${code}`
+}
 
 
 /**
@@ -45,14 +45,14 @@ const encode = longUrl => {
 
 const decode = shortUrl => {
   // Using a negative value as the parameter for substr allows you to start counting backwards from the last character in that string.
-  let code = shortUrl.substr(-maxChars);
+  let code = shortUrl.substr(-maxChars)
   return codeMap.get(code)
-};
+}
 
 
 /**
  * Your functions will be called as such:
- * decode(encode(url));
+ * decode(encode(url))
  */
 
 decode(encode('https://soundcloud.com/theoriginalbui'))
