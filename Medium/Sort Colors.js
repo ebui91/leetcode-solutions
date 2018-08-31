@@ -17,13 +17,13 @@ const sortColors = (nums) => {
   for (let i = 0; i < nums.length; i++) {
     nums[i] == 0 ? count++
       : nums[i] == 1 ? count1++
-        : nums[i] == 2 ? count2++
-          : null
+      : nums[i] == 2 ? count2++
+      : null
   }
 
   for (let i = 0; i < nums.length; i++) {
     i < count ? nums[i] = 0
       : i < count + count1 ? nums[i] = 1
-        : nums[i] = 2
+      : nums[i] = 2
   }
 }
